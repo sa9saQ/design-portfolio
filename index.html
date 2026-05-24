@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iori — Design Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F2EC;
+    --ink: #0E1F1A;
+    --ink-soft: #3B4F48;
+    --muted: #4D5953;
+    --green: #1B4332;
+    --green-deep: #0F2E22;
+    --green-soft: #E8EFE9;
+    --amber: #C58A2E;
+    --amber-soft: #FAF1DD;
+    --card: #FFFFFF;
+    --hair: #E5E0D6;
+    --ease-decel: cubic-bezier(0, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* ヘッダー */
+  header { padding: 88px 0 56px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    color: var(--amber); text-transform: uppercase;
+  }
+  h1 {
+    font-size: 40px; font-weight: 700; letter-spacing: -1px;
+    margin-top: 14px; line-height: 1.25;
+  }
+  .lead {
+    font-size: 16px; color: var(--ink-soft); margin-top: 18px;
+    max-width: 620px;
+  }
+  .links { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+  .links a {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 16px; border-radius: 12px;
+    background: var(--card); border: 1px solid var(--hair);
+    color: var(--ink); text-decoration: none;
+    font-size: 14px; font-weight: 600;
+    transition: transform 0.15s var(--ease-spring), border-color 0.15s;
+  }
+  .links a:hover { transform: translateY(-2px); border-color: var(--green); }
+
+  /* セクション見出し */
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 14px 0 22px; border-top: 1px solid var(--hair);
+  }
+  .section-head h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+  .section-head .count { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+  /* 作品グリッド */
+  .works { display: grid; gap: 22px; padding-bottom: 80px; }
+  .work {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--hair);
+    border-radius: 24px; overflow: hidden;
+    transition: transform 0.2s var(--ease-spring), box-shadow 0.2s;
+  }
+  .work:hover { transform: translateY(-4px); box-shadow: 0 18px 48px -24px rgba(15,46,34,0.4); }
+  .work-banner {
+    background: linear-gradient(150deg, var(--green) 0%, var(--green-deep) 100%);
+    padding: 38px 30px; position: relative; overflow: hidden;
+  }
+  .work-banner svg.arc { position: absolute; right: -50px; top: -50px; opacity: 0.1; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.14); color: #fff;
+    padding: 5px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.3px;
+  }
+  .tag .dot { width: 6px; height: 6px; border-radius: 3px; background: var(--amber); }
+  .work-banner h3 { color: #fff; font-size: 24px; font-weight: 700; margin-top: 16px; letter-spacing: -0.4px; }
+  .work-banner p { color: rgba(255,255,255,0.78); font-size: 14px; margin-top: 8px; max-width: 460px; }
+  .work-meta { padding: 20px 30px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .chip {
+    font-size: 12px; font-weight: 600; color: var(--green);
+    background: var(--green-soft); padding: 5px 11px; border-radius: 8px;
+  }
+  .chip.amber { color: var(--amber); background: var(--amber-soft); }
+  .work-meta .go {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 5px;
+    font-size: 14px; font-weight: 700; color: var(--green);
+  }
+
+  footer {
+    border-top: 1px solid var(--hair); padding: 32px 0 56px;
+    font-size: 13px; color: var(--muted); text-align: center;
+  }
+  @media (max-width: 560px) {
+    h1 { font-size: 30px; }
+    header { padding: 56px 0 40px; }
+    .work-banner h3 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Design Portfolio</div>
+      <h1>Iori — AI を使って、<br>作って、確かめるデザイン</h1>
+      <p class="lead">
+        生成 AI ツールで素早く骨子を作り、コントラスト・文字サイズ・動線・エラー時の体験を人の判断で詰める。
+        スピードと品質の両立を、動くプロトタイプで示します。
+      </p>
+      <div class="links">
+        <a href="https://ioribuilds.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="https://x.com/act_0001" target="_blank" rel="noopener">X (@act_0001)</a>
+        <a href="https://github.com/sa9saQ" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <div class="section-head">
+      <h2>制作物</h2>
+      <span class="count">1 作品</span>
+    </div>
+
+    <div class="works">
+      <a class="work" href="./ai-tax-app/">
+        <div class="work-banner">
+          <svg class="arc" width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="62" fill="none" stroke="#fff" stroke-width="1.5"/>
+            <circle cx="100" cy="100" r="34" fill="none" stroke="#fff" stroke-width="1.5"/>
+          </svg>
+          <span class="tag"><span class="dot"></span>UI / UX · モバイルアプリ</span>
+          <h3>AI 確定申告アプリ</h3>
+          <p>個人事業主向け。レシートを撮ると AI が勘定科目を自動分類。「不安を安心に変える」をコンセプトに、申告フロー全体を設計。</p>
+        </div>
+        <div class="work-meta">
+          <span class="chip">14 画面</span>
+          <span class="chip amber">AI レシート分類</span>
+          <span class="chip">動線設計</span>
+          <span class="chip">エラー / 空状態</span>
+          <span class="go">見る →</span>
+        </div>
+      </a>
+    </div>
+
+    <footer>
+      Built with Claude Design · © 2026 Iori
+    </footer>
+  </div>
+</body>
+</html>
